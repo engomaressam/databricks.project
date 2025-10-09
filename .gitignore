@@ -2,6 +2,12 @@
 .databrickscfg
 *.token
 
+# Scripts with embedded credentials (local use only)
+finish_capstone.py
+complete_pipeline.py
+execute_capstone.ps1
+run_capstone.py
+
 # Python
 __pycache__/
 *.py[cod]
