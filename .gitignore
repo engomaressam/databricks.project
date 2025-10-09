@@ -1,12 +1,14 @@
-# Databricks credentials
+# ===== Databricks Credentials =====
 .databrickscfg
 *.token
+.databricks/
+**/databricks.cfg
 
-# Scripts with embedded credentials (local use only)
-finish_capstone.py
-complete_pipeline.py
-execute_capstone.ps1
-run_capstone.py
+# Scripts with embedded credentials (local use only - DO NOT COMMIT)
+scripts/finish_capstone.py
+scripts/complete_pipeline.py
+scripts/execute_capstone.ps1
+scripts/run_capstone.py
 
 # Python
 __pycache__/
@@ -50,4 +52,89 @@ SampleData/SampleData/dataset_ch7/flight-time.json
 # Databricks checkpoints and temp
 checkpoints/
 _delta_log/
-.spark-warehouse/
+spark-warehouse/
+
+.databricks
+
+# ===== Jupyter Notebook =====
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# pyenv
+.python-version
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# Environments
+.env
+.env.local
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+.site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# ===== Databricks Specific =====
+checkpoints/
+_delta_log/
+spark-warehouse/
+spark-warehouse/
+metastore_db/
+derby.log
+
+# Databricks connect
+.databricks-connect
+
+# ===== Data Files (Large files - store in DVC or cloud) =====
+# Uncomment if you don't want to commit data files
+# *.csv
+# *.json
+# *.parquet
+# *.avro
+
+# ===== Generated Documentation =====
+*.html
+*.pdf
+docs/_build/
+site/
+
+# ===== OS Specific =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Temporary Files =====
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup

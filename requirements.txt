@@ -1,0 +1,22 @@
+# Databricks Lakehouse Fitness Pipeline - Python Dependencies
+
+# Core Databricks SDK
+databricks-sdk>=0.20.0
+databricks-cli>=0.18.0
+
+# Data Processing
+pyspark>=3.5.0
+
+# Documentation Generation
+jupyter>=1.0.0
+nbconvert>=7.0.0
+markdown2>=2.4.0
+
+# Utilities
+python-dotenv>=1.0.0
+pyyaml>=6.0
+
+# Development Tools (optional)
+black>=23.0.0
+flake8>=6.0.0
+pytest>=7.0.0
