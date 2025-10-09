@@ -1,7 +1,8 @@
 # Databricks notebook source
 class Config():    
     def __init__(self):      
-        self.base_dir_data = spark.sql("describe external location `data_zone`").select("url").collect()[0][0]
-        self.base_dir_checkpoint = spark.sql("describe external location `checkpoint`").select("url").collect()[0][0]
+        # Updated to use Unity Catalog volumes
+        self.base_dir_data = f"/Volumes/omar/sbit_db/capstone_data"
+        self.base_dir_checkpoint = f"/Volumes/omar/sbit_db/capstone_checkpoints"
         self.db_name = "sbit_db"
         self.maxFilesPerTrigger = 1000
