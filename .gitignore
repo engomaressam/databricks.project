@@ -138,3 +138,6 @@ desktop.ini
 *.log
 *.bak
 *.backup
+create_presentation.py
+.gitignore
+.gitignore
