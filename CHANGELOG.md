@@ -52,7 +52,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ARCHITECTURE.md - Detailed technical design document
 - PRESENTATION.md - Executive summary for companies
 - SETUP_GUIDE.md - Installation instructions
-- PROJECT_STATUS.md - Implementation checklist
 
 #### Demo Assets
 - `FINAL-WORKING-Run1.ipynb` - Executed notebook with complete outputs
