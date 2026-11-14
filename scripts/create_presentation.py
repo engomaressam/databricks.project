@@ -150,7 +150,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         }
         
         ul li:before {
-            content: "✓";
+            content: "";
             position: absolute;
             left: 0;
             color: #4ECDC4;
@@ -240,7 +240,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         <!-- Slide 1: Title -->
         <div class="slide title-slide">
-            <h1>🏋️ Databricks Lakehouse Pipeline</h1>
+            <h1>Databricks Lakehouse Pipeline</h1>
             <div class="subtitle">Fitness Tracking Data Engineering Project</div>
             <div class="subtitle">Medallion Architecture Implementation</div>
             <div class="author">
@@ -252,7 +252,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         <!-- Slide 2: Overview -->
         <div class="slide">
-            <h2>📊 Project Overview</h2>
+            <h2>Project Overview</h2>
             <div class="highlight-box">
                 <p style="font-size: 1.3em; line-height: 1.8;">
                     A <strong>production-ready data engineering pipeline</strong> built on Databricks Lakehouse Platform, 
@@ -294,7 +294,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         <!-- Slide 3: Business Problem -->
         <div class="slide">
-            <h2>🎯 Business Problem</h2>
+            <h2>Business Problem</h2>
             
             <h3>Challenge</h3>
             <div class="highlight-box">
@@ -327,7 +327,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         <!-- Slide 4: Architecture -->
         <div class="slide">
-            <h2>🏗️ Medallion Architecture</h2>
+            <h2>Medallion Architecture</h2>
             
             <div class="architecture-diagram">
 ┌─────────────────────────────────────────────────────────────┐
@@ -337,7 +337,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                        │
                        ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  🥉 BRONZE LAYER - Raw Data Lake                            │
+│  BRONZE LAYER - Raw Data Lake                            │
 │  • registered_users_bz  • gym_logins_bz                     │
 │  • kafka_multiplex_bz                                       │
 │  Immutable, audited, schema-on-read                         │
@@ -345,7 +345,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                        │
                        ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  🥈 SILVER LAYER - Curated Data Lake                        │
+│  SILVER LAYER - Curated Data Lake                        │
 │  • users  • gym_logs  • user_profile  • heart_rate          │
 │  • workouts  • completed_workouts  • date_lookup            │
 │  Validated, typed, business-ready                           │
@@ -353,7 +353,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                        │
                        ▼
 ┌─────────────────────────────────────────────────────────────┐
-│  🥇 GOLD LAYER - Analytics & ML Ready                       │
+│  GOLD LAYER - Analytics & ML Ready                       │
 │  • gym_summary  • workout_bpm_summary                       │
 │  Aggregated, optimized, BI/ML-ready                         │
 └─────────────────────────────────────────────────────────────┘
@@ -362,7 +362,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         <!-- Slide 5: Technology Stack -->
         <div class="slide">
-            <h2>💻 Technology Stack</h2>
+            <h2>Technology Stack</h2>
             
             <div class="tech-stack">
                 <div class="tech-item">
@@ -410,7 +410,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         <!-- Slide 6: Implementation -->
         <div class="slide">
-            <h2>⚙️ Implementation Highlights</h2>
+            <h2>Implementation Highlights</h2>
             
             <h3>Bronze Layer: Raw Ingestion</h3>
             <ul>
@@ -439,7 +439,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         <!-- Slide 7: Results -->
         <div class="slide">
-            <h2>📈 Results & Metrics</h2>
+            <h2>Results & Metrics</h2>
             
             <h3>Data Pipeline Output</h3>
             <div class="highlight-box">
@@ -482,7 +482,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         <!-- Slide 8: Skills Demonstrated -->
         <div class="slide">
-            <h2>🎓 Skills Demonstrated</h2>
+            <h2>Skills Demonstrated</h2>
             
             <div class="tech-stack">
                 <div class="tech-item">
@@ -528,7 +528,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         <!-- Slide 9: Business Value -->
         <div class="slide">
-            <h2>💼 Business Value</h2>
+            <h2>Business Value</h2>
             
             <h3>Benefits Delivered</h3>
             <ul>
@@ -550,7 +550,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         <!-- Slide 10: Repository & Demo -->
         <div class="slide">
-            <h2>📂 Repository & Demonstration</h2>
+            <h2>Repository & Demonstration</h2>
             
             <h3>GitHub Repository</h3>
             <div class="highlight-box">
@@ -578,7 +578,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         <!-- Slide 11: Future Enhancements -->
         <div class="slide">
-            <h2>🚀 Future Enhancements</h2>
+            <h2>Future Enhancements</h2>
             
             <h3>Phase 2: Real-time Streaming</h3>
             <ul>
@@ -607,7 +607,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         
         <!-- Slide 12: Contact -->
         <div class="slide">
-            <h2>📞 Contact & Next Steps</h2>
+            <h2>Contact & Next Steps</h2>
             
             <div class="contact-info">
                 <h3 style="color: #667eea; margin-bottom: 20px;">Omar Essam</h3>
@@ -636,7 +636,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <div style="text-align: center; margin-top: 40px; font-size: 1.1em;">
                 <p><strong>Ready to contribute from day one!</strong></p>
                 <p style="margin-top: 20px; font-style: italic; color: #666;">
-                    Built with ❤️ using Databricks Lakehouse Platform
+                    Built with using Databricks Lakehouse Platform
                 </p>
             </div>
         </div>
@@ -661,9 +661,9 @@ def create_presentation():
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(html_content)
     
-    print(f"✅ HTML presentation created: {output_file}")
-    print(f"📊 Open in browser to view")
-    print(f"🖨️ Use browser's Print > Save as PDF to create PDF version")
+    print(f"HTML presentation created: {output_file}")
+    print(f"Open in browser to view")
+    print(f"Use browser's Print > Save as PDF to create PDF version")
     
     return output_file
 

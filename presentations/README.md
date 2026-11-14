@@ -1,8 +1,8 @@
-# 🎨 Presentation Materials
+# Presentation Materials
 
 This folder contains professional presentation materials for the Databricks Lakehouse Pipeline project.
 
-## 📄 Files
+## Files
 
 ### PRESENTATION.html
 **Professional HTML Presentation** - 12 comprehensive slides
@@ -22,13 +22,13 @@ This folder contains professional presentation materials for the Databricks Lake
 12. **Contact** - Links and call to action
 
 **Features:**
-- ✅ Modern, responsive design
-- ✅ Gradient backgrounds and card layouts
-- ✅ Print-ready for PDF export
-- ✅ Professional styling with badges and metrics
-- ✅ Mobile-friendly responsive layout
+- Modern, responsive design
+- Gradient backgrounds and card layouts
+- Print-ready for PDF export
+- Professional styling with badges and metrics
+- Mobile-friendly responsive layout
 
-## 🖥️ How to View
+## How to View
 
 ### In Browser
 ```bash
@@ -50,7 +50,7 @@ start presentations/PRESENTATION.html
 - Background graphics: Enabled
 - Scale: 100%
 
-## 🎯 Use Cases
+## Use Cases
 
 ### For Recruiters/Hiring Managers
 - Quick visual overview of the project
@@ -70,7 +70,7 @@ start presentations/PRESENTATION.html
 - Use as project showcase
 - Include in online portfolio
 
-## 🔄 Regenerate Presentation
+## Regenerate Presentation
 
 If you need to update the presentation:
 
@@ -82,12 +82,12 @@ python scripts/create_presentation.py
 ```
 
 The script automatically:
-- ✅ Uses current date
-- ✅ Applies modern styling
-- ✅ Includes all project metrics
-- ✅ Generates print-ready HTML
+- Uses current date
+- Applies modern styling
+- Includes all project metrics
+- Generates print-ready HTML
 
-## 🎨 Customization
+## Customization
 
 To customize the presentation, edit `scripts/create_presentation.py`:
 
@@ -105,7 +105,7 @@ Each slide is a `<div class="slide">` block. Add/remove/modify as needed.
 **Metrics:**
 Update the metric cards in slides 2 and 7 with your specific numbers.
 
-## 📊 Presentation Statistics
+## Presentation Statistics
 
 | Metric | Value |
 |--------|-------|
@@ -116,7 +116,7 @@ Update the metric cards in slides 2 and 7 with your specific numbers.
 | **Technology Badges** | 7 |
 | **Links** | 5 |
 
-## 🌐 Online Sharing
+## Online Sharing
 
 ### GitHub Pages
 Host the presentation on GitHub Pages:
@@ -127,7 +127,7 @@ Host the presentation on GitHub Pages:
 ### Direct Sharing
 Share the HTML file directly - it's self-contained with no external dependencies.
 
-## 📧 Feedback
+## Feedback
 
 If you have suggestions for improving the presentation:
 - Open an issue on GitHub

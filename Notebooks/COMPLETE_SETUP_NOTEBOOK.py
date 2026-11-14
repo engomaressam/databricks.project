@@ -1,12 +1,12 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # 🚀 Complete Capstone Project Setup & Execution
+# MAGIC # Complete Capstone Project Setup & Execution
 # MAGIC 
 # MAGIC This notebook will:
-# MAGIC 1. ✅ Upload dataset files to Unity Catalog volume
-# MAGIC 2. ✅ Verify all data is in place
-# MAGIC 3. ✅ Execute the complete pipeline (Bronze → Silver → Gold)
-# MAGIC 4. ✅ Validate results
+# MAGIC 1. Upload dataset files to Unity Catalog volume
+# MAGIC 2. Verify all data is in place
+# MAGIC 3. Execute the complete pipeline (Bronze → Silver → Gold)
+# MAGIC 4. Validate results
 # MAGIC 
 # MAGIC **Instructions:**
 # MAGIC 1. Upload all files from `CapstoneProject/Capstone Project/Data Set/` to DBFS first
@@ -60,9 +60,9 @@ dirs_to_create = [
 for dir_path in dirs_to_create:
     try:
         dbutils.fs.mkdirs(dir_path)
-        print(f"✅ Created: {dir_path}")
+        print(f"Created: {dir_path}")
     except Exception as e:
-        print(f"ℹ️  {dir_path}: {e}")
+        print(f"ℹ  {dir_path}: {e}")
 
 # COMMAND ----------
 
@@ -110,20 +110,20 @@ for filename, dest_dir in file_mappings.items():
         try:
             dbutils.fs.ls(source_file)
         except:
-            print(f"⚠️  Source not found: {filename}")
+            print(f" Source not found: {filename}")
             failed_count += 1
             continue
         
         # Copy file
         dbutils.fs.cp(source_file, dest_file, recurse=True)
-        print(f"✅ Copied: {filename}")
+        print(f"Copied: {filename}")
         uploaded_count += 1
         
     except Exception as e:
-        print(f"❌ Error copying {filename}: {e}")
+        print(f"Error copying {filename}: {e}")
         failed_count += 1
 
-print(f"\n📊 Summary: {uploaded_count} uploaded, {failed_count} failed")
+print(f"\nSummary: {uploaded_count} uploaded, {failed_count} failed")
 
 # COMMAND ----------
 
@@ -132,7 +132,7 @@ print(f"\n📊 Summary: {uploaded_count} uploaded, {failed_count} failed")
 
 # COMMAND ----------
 
-print("📁 Volume contents:\n")
+print("Volume contents:\n")
 
 def list_recursively(path, indent=0):
     try:
@@ -140,13 +140,13 @@ def list_recursively(path, indent=0):
         for item in items:
             prefix = "  " * indent
             if item.isDir():
-                print(f"{prefix}📁 {item.name}")
+                print(f"{prefix}{item.name}")
                 list_recursively(item.path, indent + 1)
             else:
                 size_mb = item.size / (1024*1024)
-                print(f"{prefix}📄 {item.name} ({size_mb:.2f} MB)")
+                print(f"{prefix}{item.name} ({size_mb:.2f} MB)")
     except Exception as e:
-        print(f"{prefix}❌ Error: {e}")
+        print(f"{prefix}Error: {e}")
 
 list_recursively(volume_base)
 
@@ -170,7 +170,7 @@ dbutils.notebook.run(
     }
 )
 
-print("✅ Pipeline executed successfully!")
+print("Pipeline executed successfully!")
 
 # COMMAND ----------
 
@@ -182,7 +182,7 @@ print("✅ Pipeline executed successfully!")
 # List all tables in the schema
 tables = spark.sql(f"SHOW TABLES IN {CATALOG_NAME}.{SCHEMA_NAME}").collect()
 
-print(f"📊 Tables in {CATALOG_NAME}.{SCHEMA_NAME}:\n")
+print(f"Tables in {CATALOG_NAME}.{SCHEMA_NAME}:\n")
 
 bronze_tables = []
 silver_tables = []
@@ -200,19 +200,19 @@ for table in tables:
     else:
         silver_tables.append(table_name)
 
-print(f"🥉 Bronze Layer ({len(bronze_tables)} tables):")
+print(f"Bronze Layer ({len(bronze_tables)} tables):")
 for t in bronze_tables:
     print(f"   - {t}")
 
-print(f"\n🥈 Silver Layer ({len(silver_tables)} tables):")
+print(f"\nSilver Layer ({len(silver_tables)} tables):")
 for t in silver_tables:
     print(f"   - {t}")
 
-print(f"\n🥇 Gold Layer ({len(gold_tables)} tables):")
+print(f"\nGold Layer ({len(gold_tables)} tables):")
 for t in gold_tables:
     print(f"   - {t}")
 
-print(f"\n📊 Total: {len(tables)} tables/views created")
+print(f"\nTotal: {len(tables)} tables/views created")
 
 # COMMAND ----------
 
@@ -247,14 +247,14 @@ print(f"\n📊 Total: {len(tables)} tables/views created")
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC # 🎉 Capstone Project Complete!
+# MAGIC # Capstone Project Complete!
 # MAGIC 
 # MAGIC ## Summary
 # MAGIC 
-# MAGIC ✅ All dataset files uploaded to Unity Catalog volume  
-# MAGIC ✅ Pipeline executed successfully (Bronze → Silver → Gold)  
-# MAGIC ✅ All tables created and validated  
-# MAGIC ✅ Sample queries ran successfully  
+# MAGIC All dataset files uploaded to Unity Catalog volume  
+# MAGIC Pipeline executed successfully (Bronze → Silver → Gold)  
+# MAGIC All tables created and validated  
+# MAGIC Sample queries ran successfully  
 # MAGIC 
 # MAGIC ## Next Steps
 # MAGIC 
@@ -271,7 +271,7 @@ print(f"\n📊 Total: {len(tables)} tables/views created")
 # MAGIC - **Structured Streaming** for incremental processing
 # MAGIC - **Production-ready** data pipeline
 # MAGIC 
-# MAGIC **Congratulations! 🎊**
+# MAGIC **Congratulations! **
 
 # COMMAND ----------
 

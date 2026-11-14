@@ -34,7 +34,7 @@ def main():
     # Initialize Databricks client
     print("[1/6] Connecting to Databricks...")
     w = WorkspaceClient(host=DATABRICKS_HOST, token=DATABRICKS_TOKEN)
-    print(f"✅ Connected to workspace: {DATABRICKS_HOST}")
+    print(f"Connected to workspace: {DATABRICKS_HOST}")
     print()
     
     # Step 1: Create schema if not exists
@@ -45,12 +45,12 @@ def main():
             catalog_name=CATALOG_NAME,
             comment="Capstone project schema for fitness tracking data"
         )
-        print(f"✅ Schema {CATALOG_NAME}.{SCHEMA_NAME} created")
+        print(f"Schema {CATALOG_NAME}.{SCHEMA_NAME} created")
     except Exception as e:
         if "already exists" in str(e).lower():
-            print(f"ℹ️  Schema {CATALOG_NAME}.{SCHEMA_NAME} already exists")
+            print(f"ℹ  Schema {CATALOG_NAME}.{SCHEMA_NAME} already exists")
         else:
-            print(f"❌ Error creating schema: {e}")
+            print(f"Error creating schema: {e}")
     print()
     
     # Step 2: Create data volume
@@ -63,12 +63,12 @@ def main():
             volume_type=catalog.VolumeType.MANAGED,
             comment="Volume for capstone project data files"
         )
-        print(f"✅ Volume {CATALOG_NAME}.{SCHEMA_NAME}.{DATA_VOLUME} created")
+        print(f"Volume {CATALOG_NAME}.{SCHEMA_NAME}.{DATA_VOLUME} created")
     except Exception as e:
         if "already exists" in str(e).lower():
-            print(f"ℹ️  Volume {CATALOG_NAME}.{SCHEMA_NAME}.{DATA_VOLUME} already exists")
+            print(f"ℹ  Volume {CATALOG_NAME}.{SCHEMA_NAME}.{DATA_VOLUME} already exists")
         else:
-            print(f"❌ Error creating volume: {e}")
+            print(f"Error creating volume: {e}")
     print()
     
     # Step 3: Create checkpoint volume
@@ -81,32 +81,32 @@ def main():
             volume_type=catalog.VolumeType.MANAGED,
             comment="Volume for streaming checkpoints"
         )
-        print(f"✅ Volume {CATALOG_NAME}.{SCHEMA_NAME}.{CHECKPOINT_VOLUME} created")
+        print(f"Volume {CATALOG_NAME}.{SCHEMA_NAME}.{CHECKPOINT_VOLUME} created")
     except Exception as e:
         if "already exists" in str(e).lower():
-            print(f"ℹ️  Volume {CATALOG_NAME}.{SCHEMA_NAME}.{CHECKPOINT_VOLUME} already exists")
+            print(f"ℹ  Volume {CATALOG_NAME}.{SCHEMA_NAME}.{CHECKPOINT_VOLUME} already exists")
         else:
-            print(f"❌ Error creating checkpoint volume: {e}")
+            print(f"Error creating checkpoint volume: {e}")
     print()
     
     # Step 4: Upload data files to volume
     print("[5/6] Uploading dataset files to volume...")
-    print("ℹ️  Note: File upload to volumes requires Databricks Files API")
-    print("ℹ️  Files must be uploaded via Databricks UI or mounted storage")
+    print("ℹ  Note: File upload to volumes requires Databricks Files API")
+    print("ℹ  Files must be uploaded via Databricks UI or mounted storage")
     print()
     
     # Step 5: Update config file
     print("[6/6] Updating configuration file...")
     update_config_file()
-    print("✅ Configuration updated")
+    print("Configuration updated")
     print()
     
     # Summary
     print("=" * 60)
-    print("✅ SETUP COMPLETE!")
+    print("SETUP COMPLETE!")
     print("=" * 60)
     print()
-    print("📋 Next Steps:")
+    print("Next Steps:")
     print("1. Upload data files from 'CapstoneProject/Capstone Project/Data Set/'")
     print(f"   to volume: {CATALOG_NAME}.{SCHEMA_NAME}.{DATA_VOLUME}")
     print("   ")
@@ -123,7 +123,7 @@ def main():
     print(f"4. Set Environment parameter to: {CATALOG_NAME}")
     print("5. Run All cells")
     print()
-    print("🎯 Expected Output:")
+    print("Expected Output:")
     print(f"   - Database: {CATALOG_NAME}.{SCHEMA_NAME}")
     print("   - 13+ tables (Bronze, Silver, Gold layers)")
     print("   - Analytics view: gym_summary")
@@ -159,10 +159,10 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\n\n❌ Setup cancelled by user")
+        print("\n\nSetup cancelled by user")
         sys.exit(1)
     except Exception as e:
-        print(f"\n\n❌ Setup failed: {e}")
+        print(f"\n\nSetup failed: {e}")
         import traceback
         traceback.print_exc()
         sys.exit(1)

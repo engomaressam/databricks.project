@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing! This is a portfolio project, but feedback and suggestions are always welcome.
 
-## 📋 Ways to Contribute
+## Ways to Contribute
 
 ### 1. Report Issues
 - Found a bug? Open an issue with details
@@ -19,7 +19,7 @@ Thank you for your interest in contributing! This is a portfolio project, but fe
 - Code quality enhancements
 - Additional test cases
 
-## 🔧 Development Setup
+## Development Setup
 
 ### Prerequisites
 ```bash
@@ -49,7 +49,7 @@ token = your-access-token
 EOF
 ```
 
-## 📝 Coding Standards
+## Coding Standards
 
 ### Python Code Style
 - Follow PEP 8 guidelines
@@ -69,7 +69,7 @@ EOF
 - Meaningful aliases
 - Comments for complex logic
 
-## 🧪 Testing
+## Testing
 
 ### Before Submitting
 - [ ] Code runs without errors
@@ -83,7 +83,7 @@ EOF
 - Generate synthetic data for testing
 - Don't commit large data files
 
-## 📤 Pull Request Process
+## Pull Request Process
 
 1. **Fork the repository**
 2. **Create a feature branch**
@@ -104,7 +104,7 @@ EOF
    - Reference any related issues
    - Include screenshots if UI changes
 
-## 🎯 Commit Message Guidelines
+## Commit Message Guidelines
 
 ### Format
 ```
@@ -140,7 +140,7 @@ docs(readme): Update installation instructions
 Added troubleshooting section and clarified Unity Catalog setup.
 ```
 
-## 🐛 Bug Report Template
+## Bug Report Template
 
 ```markdown
 **Describe the bug**
@@ -167,7 +167,7 @@ If applicable, add screenshots.
 Any other relevant information.
 ```
 
-## ✨ Feature Request Template
+## Feature Request Template
 
 ```markdown
 **Is your feature request related to a problem?**
@@ -183,7 +183,7 @@ Other approaches you've thought about.
 Mockups, examples, or related issues.
 ```
 
-## 📜 Code of Conduct
+## Code of Conduct
 
 ### Our Standards
 - Be respectful and inclusive
@@ -197,14 +197,14 @@ Mockups, examples, or related issues.
 - Publishing others' private information
 - Unprofessional conduct
 
-## 🙏 Recognition
+## Recognition
 
 Contributors will be acknowledged in:
 - README.md Contributors section
 - Release notes for significant contributions
 - Project documentation
 
-## 📞 Questions?
+## Questions?
 
 - Open a GitHub Discussion
 - Email: omaressamrme@outlook.com
@@ -212,4 +212,4 @@ Contributors will be acknowledged in:
 
 ---
 
-Thank you for helping make this project better! 🚀
+Thank you for helping make this project better!

@@ -1,11 +1,11 @@
-# 🎯 Databricks Lakehouse Pipeline - Executive Summary
+# Databricks Lakehouse Pipeline - Executive Summary
 
 > **Professional Data Engineering Portfolio Project**  
 > Demonstrating production-ready skills in modern data platforms
 
 ---
 
-## 🚀 Project Highlights
+## Project Highlights
 
 ### **What Was Built**
 
@@ -24,7 +24,7 @@ A **complete end-to-end data pipeline** on Databricks Lakehouse Platform that pr
 
 ---
 
-## 💼 Business Value
+## Business Value
 
 ### **Problem Statement**
 
@@ -38,16 +38,16 @@ Fitness tracking companies collect data from multiple disconnected systems:
 
 ### **Solution Delivered**
 
-✅ **Unified Data Platform**: All data in one lakehouse  
-✅ **Real-time Processing**: Streaming + batch hybrid architecture  
-✅ **Data Quality**: Automated validation and cleansing  
-✅ **Governance**: Built-in lineage and access control  
-✅ **Scalability**: Handles growth from GB to PB  
-✅ **Cost Efficient**: Pay-as-you-go, auto-scaling compute  
+**Unified Data Platform**: All data in one lakehouse  
+**Real-time Processing**: Streaming + batch hybrid architecture  
+**Data Quality**: Automated validation and cleansing  
+**Governance**: Built-in lineage and access control  
+**Scalability**: Handles growth from GB to PB  
+**Cost Efficient**: Pay-as-you-go, auto-scaling compute  
 
 ---
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 ### **Medallion Architecture**
 
@@ -83,23 +83,23 @@ Sources → Bronze (Raw) → Silver (Cleaned) → Gold (Analytics)
 
 ---
 
-## 🎓 Skills Demonstrated
+## Skills Demonstrated
 
 ### **Data Engineering Core**
 
-✅ **Pipeline Development**
+**Pipeline Development**
 - End-to-end ETL/ELT workflows
 - Incremental data processing
 - Error handling and retry logic
 - Data quality validation
 
-✅ **Architecture Design**
+**Architecture Design**
 - Medallion architecture implementation
 - Schema design (normalized + denormalized)
 - Partitioning strategies
 - Performance optimization
 
-✅ **Data Modeling**
+**Data Modeling**
 - Star schema for analytics
 - Slowly changing dimensions (Type 1)
 - Time-series data handling
@@ -107,25 +107,25 @@ Sources → Bronze (Raw) → Silver (Cleaned) → Gold (Analytics)
 
 ### **Databricks Platform Expertise**
 
-✅ **Unity Catalog**
+**Unity Catalog**
 - 3-level namespace (`catalog.schema.table`)
 - Managed volumes for files
 - Data lineage tracking
 - Access control policies
 
-✅ **Delta Lake**
+**Delta Lake**
 - ACID transaction handling
 - Schema evolution
 - Time travel queries
 - Optimized file management
 
-✅ **Structured Streaming**
+**Structured Streaming**
 - Batch + streaming unified API
 - Checkpoint management
 - Exactly-once semantics
 - Watermarking for late data
 
-✅ **Notebook Development**
+**Notebook Development**
 - Modular code organization
 - Parameter passing between notebooks
 - Interactive exploration
@@ -133,15 +133,15 @@ Sources → Bronze (Raw) → Silver (Cleaned) → Gold (Analytics)
 
 ### **Software Engineering Practices**
 
-✅ **Version Control**: Git/GitHub workflows  
-✅ **Documentation**: Comprehensive README, inline comments  
-✅ **Code Quality**: PEP 8 style, error handling  
-✅ **Testing**: Data validation checks  
-✅ **Automation**: Scripted deployment  
+**Version Control**: Git/GitHub workflows  
+**Documentation**: Comprehensive README, inline comments  
+**Code Quality**: PEP 8 style, error handling  
+**Testing**: Data validation checks  
+**Automation**: Scripted deployment  
 
 ---
 
-## 📊 Implementation Details
+## Implementation Details
 
 ### **Data Pipeline Flow**
 
@@ -171,15 +171,15 @@ Sources → Bronze (Raw) → Silver (Cleaned) → Gold (Analytics)
 
 ### **Production-Ready Features**
 
-✅ **Idempotent**: Re-running produces same results  
-✅ **Incremental**: Processes only new data  
-✅ **Monitored**: Execution logs and metrics  
-✅ **Documented**: Clear README and comments  
-✅ **Tested**: Validated with sample data  
+**Idempotent**: Re-running produces same results  
+**Incremental**: Processes only new data  
+**Monitored**: Execution logs and metrics  
+**Documented**: Clear README and comments  
+**Tested**: Validated with sample data  
 
 ---
 
-## 🎯 Results
+## Results
 
 ### **What You Can See**
 
@@ -210,15 +210,15 @@ Sources → Bronze (Raw) → Silver (Cleaned) → Gold (Analytics)
 
 ---
 
-## 🔐 Security & Governance
+## Security & Governance
 
 ### **Unity Catalog Benefits**
 
-✅ **Centralized Governance**: Single source of truth  
-✅ **Access Control**: Row/column-level security  
-✅ **Audit Logging**: Who accessed what, when  
-✅ **Data Lineage**: Upstream/downstream tracking  
-✅ **Compliance**: GDPR/CCPA ready  
+**Centralized Governance**: Single source of truth  
+**Access Control**: Row/column-level security  
+**Audit Logging**: Who accessed what, when  
+**Data Lineage**: Upstream/downstream tracking  
+**Compliance**: GDPR/CCPA ready  
 
 ### **Implementation**
 
@@ -229,7 +229,7 @@ Sources → Bronze (Raw) → Silver (Cleaned) → Gold (Analytics)
 
 ---
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 ### **Phase 2: Real-time Streaming**
 - Kafka integration for live data
@@ -249,26 +249,26 @@ Sources → Bronze (Raw) → Silver (Cleaned) → Gold (Analytics)
 
 ---
 
-## 📈 Business Impact
+## Business Impact
 
 ### **For Fitness Company**
 
-✅ **Faster Insights**: Real-time view of user activity  
-✅ **Better Decisions**: Data-driven product improvements  
-✅ **Personalization**: Tailored workout recommendations  
-✅ **Cost Savings**: Efficient data processing  
-✅ **Compliance**: Secure, auditable data handling  
+**Faster Insights**: Real-time view of user activity  
+**Better Decisions**: Data-driven product improvements  
+**Personalization**: Tailored workout recommendations  
+**Cost Savings**: Efficient data processing  
+**Compliance**: Secure, auditable data handling  
 
 ### **For Data Team**
 
-✅ **Scalable Foundation**: Easily add new data sources  
-✅ **Reduced Complexity**: Unified platform for all data  
-✅ **Faster Development**: Reusable components  
-✅ **Better Collaboration**: Notebooks + Git workflow  
+**Scalable Foundation**: Easily add new data sources  
+**Reduced Complexity**: Unified platform for all data  
+**Faster Development**: Reusable components  
+**Better Collaboration**: Notebooks + Git workflow  
 
 ---
 
-## 🎓 Learning Outcomes
+## Learning Outcomes
 
 This project demonstrates proficiency in:
 
@@ -295,46 +295,46 @@ This project demonstrates proficiency in:
 
 ---
 
-## 📞 Contact & Next Steps
+## Contact & Next Steps
 
 ### **Explore the Project**
 
-- 📂 **GitHub**: [github.com/engomaressam/databricks.project](https://github.com/engomaressam/databricks.project)
-- 📓 **Executed Notebook**: `FINAL-WORKING-Run1.ipynb` (with outputs)
-- 📖 **Documentation**: Complete README and guides
+- **GitHub**: [github.com/engomaressam/databricks.project](https://github.com/engomaressam/databricks.project)
+- **Executed Notebook**: `FINAL-WORKING-Run1.ipynb` (with outputs)
+- **Documentation**: Complete README and guides
 
 ### **Let's Connect**
 
 **Omar Essam**
-- 📧 Email: omaressamrme@outlook.com
-- 💼 LinkedIn: [Connect with me](https://linkedin.com/in/your-profile)
-- 🐙 GitHub: [@engomaressam](https://github.com/engomaressam)
+- Email: omaressamrme@outlook.com
+- LinkedIn: [Connect with me](https://linkedin.com/in/your-profile)
+- GitHub: [@engomaressam](https://github.com/engomaressam)
 
 ---
 
-## 💡 Why This Project Matters
+## Why This Project Matters
 
 ### **For Employers**
 
 This project demonstrates **ready-to-contribute** skills:
-- ✅ Modern data platform experience (Databricks)
-- ✅ Production-ready code quality
-- ✅ Understanding of data architecture
-- ✅ Ability to deliver end-to-end solutions
-- ✅ Strong documentation habits
+- Modern data platform experience (Databricks)
+- Production-ready code quality
+- Understanding of data architecture
+- Ability to deliver end-to-end solutions
+- Strong documentation habits
 
 ### **Technical Depth**
 
 Unlike tutorial projects, this includes:
-- ✅ Real-world complexity (multiple data sources)
-- ✅ Production patterns (Medallion Architecture)
-- ✅ Enterprise features (Unity Catalog)
-- ✅ Scalability considerations
-- ✅ Security and governance
+- Real-world complexity (multiple data sources)
+- Production patterns (Medallion Architecture)
+- Enterprise features (Unity Catalog)
+- Scalability considerations
+- Security and governance
 
 ---
 
-## 🏆 Conclusion
+## Conclusion
 
 This project showcases a **complete data engineering solution** using industry-leading tools and best practices. It represents the kind of work I can deliver in a professional data engineering role.
 
@@ -344,4 +344,4 @@ This project showcases a **complete data engineering solution** using industry-l
 
 **Thank you for reviewing my work!**
 
-*Built with ❤️ using Databricks Lakehouse Platform*
+*Built with using Databricks Lakehouse Platform*

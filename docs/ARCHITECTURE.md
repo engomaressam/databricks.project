@@ -1,4 +1,4 @@
-# 🏗️ System Architecture Documentation
+# System Architecture Documentation
 
 ## Table of Contents
 1. [Overview](#overview)
@@ -422,7 +422,7 @@ SELECT mac_address FROM gym_logs WHERE gym = 1
 
 Each notebook logs:
 ```python
-print(f"✅ Loaded {count} records into {table_name}")
+print(f"Loaded {count} records into {table_name}")
 ```
 
 ### Data Quality Checks
@@ -530,11 +530,11 @@ Silver Layer → Feature Store → ML Models → Gold Layer
 ## Conclusion
 
 This architecture demonstrates:
-- ✅ Industry-standard patterns (Medallion)
-- ✅ Production-ready technologies (Databricks, Delta Lake)
-- ✅ Scalability from MVP to enterprise
-- ✅ Security and governance built-in
-- ✅ Performance optimizations applied
+- Industry-standard patterns (Medallion)
+- Production-ready technologies (Databricks, Delta Lake)
+- Scalability from MVP to enterprise
+- Security and governance built-in
+- Performance optimizations applied
 
 **Next Steps**: Deploy to production with Databricks Workflows, add monitoring, implement streaming.
 

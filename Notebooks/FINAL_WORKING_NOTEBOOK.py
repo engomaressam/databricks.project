@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # 🎉 Capstone Project - Final Working Version
+# MAGIC # Capstone Project - Final Working Version
 # MAGIC 
 # MAGIC This version has proper data type handling!
 # MAGIC 
@@ -15,7 +15,7 @@ VOLUME = "capstone_data"
 
 volume_base = f"/Volumes/{CATALOG}/{SCHEMA}/{VOLUME}"
 
-print(f"📊 Configuration:")
+print(f"Configuration:")
 print(f"   Catalog: {CATALOG}")
 print(f"   Schema: {SCHEMA}")
 print(f"   Volume: {volume_base}")
@@ -42,7 +42,7 @@ dirs = [
 for d in dirs:
     dbutils.fs.mkdirs(d)
 
-print("✅ Directories created")
+print("Directories created")
 
 # COMMAND ----------
 
@@ -70,7 +70,7 @@ df_users = spark.createDataFrame(user_data, schema=user_schema)
 # Write to volume
 df_users.write.mode("overwrite").option("header", "true").csv(f"{volume_base}/raw/registered_users_bz/")
 
-print("✅ Users generated")
+print("Users generated")
 display(df_users.limit(3))
 
 # COMMAND ----------
@@ -100,7 +100,7 @@ for i in range(1, 17):
 df_gym = spark.createDataFrame(gym_data, schema=gym_schema)
 df_gym.write.mode("overwrite").option("header", "true").csv(f"{volume_base}/raw/gym_logins_bz/")
 
-print("✅ Gym logins generated")
+print("Gym logins generated")
 display(df_gym.limit(3))
 
 # COMMAND ----------
@@ -131,7 +131,7 @@ for day_num in range(365):
 df_date = spark.createDataFrame(date_data)
 df_date.write.mode("overwrite").json(f"{volume_base}/test_data/")
 
-print("✅ Date lookup generated (365 days)")
+print("Date lookup generated (365 days)")
 
 # COMMAND ----------
 
@@ -143,7 +143,7 @@ print("✅ Date lookup generated (365 days)")
 print("Creating database...")
 spark.sql(f"CREATE DATABASE IF NOT EXISTS {CATALOG}.{SCHEMA}")
 spark.sql(f"USE {CATALOG}.{SCHEMA}")
-print("✅ Database ready")
+print("Database ready")
 
 # COMMAND ----------
 
@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.registered_users_bz(
     source_file string
 ) USING DELTA
 """)
-print("✅ registered_users_bz")
+print("registered_users_bz")
 
 spark.sql(f"""
 CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.gym_logins_bz(
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.gym_logins_bz(
     source_file string
 ) USING DELTA
 """)
-print("✅ gym_logins_bz")
+print("gym_logins_bz")
 
 # COMMAND ----------
 
@@ -187,7 +187,7 @@ CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.users(
     registration_timestamp timestamp
 ) USING DELTA
 """)
-print("✅ users")
+print("users")
 
 spark.sql(f"""
 CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.gym_logs(
@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.gym_logs(
     logout timestamp
 ) USING DELTA
 """)
-print("✅ gym_logs")
+print("gym_logs")
 
 spark.sql(f"""
 CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.date_lookup(
@@ -211,7 +211,7 @@ CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.date_lookup(
     week_part string
 ) USING DELTA
 """)
-print("✅ date_lookup")
+print("date_lookup")
 
 # COMMAND ----------
 
@@ -237,7 +237,7 @@ FROM json.`{volume_base}/test_data/`
 """)
 
 date_count = spark.table(f"{CATALOG}.{SCHEMA}.date_lookup").count()
-print(f"✅ date_lookup loaded: {date_count} records")
+print(f"date_lookup loaded: {date_count} records")
 
 # COMMAND ----------
 
@@ -258,7 +258,7 @@ df_users_bronze = spark.read.option("header", "true").csv(f"{volume_base}/raw/re
 df_users_bronze.write.mode("overwrite").format("delta").saveAsTable(f"{CATALOG}.{SCHEMA}.registered_users_bz")
 
 users_bz_count = spark.table(f"{CATALOG}.{SCHEMA}.registered_users_bz").count()
-print(f"✅ registered_users_bz loaded: {users_bz_count} records")
+print(f"registered_users_bz loaded: {users_bz_count} records")
 
 # COMMAND ----------
 
@@ -275,7 +275,7 @@ df_users_silver = spark.table(f"{CATALOG}.{SCHEMA}.registered_users_bz") \
 df_users_silver.write.mode("overwrite").format("delta").saveAsTable(f"{CATALOG}.{SCHEMA}.users")
 
 users_count = spark.table(f"{CATALOG}.{SCHEMA}.users").count()
-print(f"✅ users loaded: {users_count} records")
+print(f"users loaded: {users_count} records")
 
 # COMMAND ----------
 
@@ -294,7 +294,7 @@ df_gym_bronze = spark.read.option("header", "true").csv(f"{volume_base}/raw/gym_
 df_gym_bronze.write.mode("overwrite").format("delta").saveAsTable(f"{CATALOG}.{SCHEMA}.gym_logins_bz")
 
 gym_bz_count = spark.table(f"{CATALOG}.{SCHEMA}.gym_logins_bz").count()
-print(f"✅ gym_logins_bz loaded: {gym_bz_count} records")
+print(f"gym_logins_bz loaded: {gym_bz_count} records")
 
 # COMMAND ----------
 
@@ -311,7 +311,7 @@ df_gym_silver = spark.table(f"{CATALOG}.{SCHEMA}.gym_logins_bz") \
 df_gym_silver.write.mode("overwrite").format("delta").saveAsTable(f"{CATALOG}.{SCHEMA}.gym_logs")
 
 gym_count = spark.table(f"{CATALOG}.{SCHEMA}.gym_logs").count()
-print(f"✅ gym_logs loaded: {gym_count} records")
+print(f"gym_logs loaded: {gym_count} records")
 
 # COMMAND ----------
 
@@ -334,7 +334,7 @@ ORDER BY date, gym, l.mac_address
 """)
 
 summary_count = spark.sql(f"SELECT * FROM {CATALOG}.{SCHEMA}.gym_summary").count()
-print(f"✅ gym_summary created: {summary_count} records")
+print(f"gym_summary created: {summary_count} records")
 
 # COMMAND ----------
 
@@ -346,7 +346,7 @@ print(f"✅ gym_summary created: {summary_count} records")
 tables = spark.sql(f"SHOW TABLES IN {CATALOG}.{SCHEMA}").collect()
 
 print("=" * 70)
-print(f"📊 CAPSTONE PROJECT RESULTS")
+print(f"CAPSTONE PROJECT RESULTS")
 print("=" * 70)
 print()
 
@@ -354,25 +354,25 @@ bronze = [t.tableName for t in tables if "_bz" in t.tableName]
 gold = [t.tableName for t in tables if t.tableName == "gym_summary"]
 silver = [t.tableName for t in tables if t.tableName not in bronze and t.tableName not in gold]
 
-print(f"🥉 Bronze Layer ({len(bronze)} tables):")
+print(f"Bronze Layer ({len(bronze)} tables):")
 for t in bronze:
     count = spark.table(f"{CATALOG}.{SCHEMA}.{t}").count()
-    print(f"   ✅ {t}: {count:,} records")
+    print(f"   {t}: {count:,} records")
 
-print(f"\n🥈 Silver Layer ({len(silver)} tables):")
+print(f"\nSilver Layer ({len(silver)} tables):")
 for t in silver:
     count = spark.table(f"{CATALOG}.{SCHEMA}.{t}").count()
-    print(f"   ✅ {t}: {count:,} records")
+    print(f"   {t}: {count:,} records")
 
-print(f"\n🥇 Gold Layer ({len(gold)} views):")
+print(f"\nGold Layer ({len(gold)} views):")
 for t in gold:
     count = spark.sql(f"SELECT * FROM {CATALOG}.{SCHEMA}.{t}").count()
-    print(f"   ✅ {t}: {count:,} records")
+    print(f"   {t}: {count:,} records")
 
-print(f"\n📊 Total: {len(tables)} tables/views created!")
+print(f"\nTotal: {len(tables)} tables/views created!")
 print()
 print("=" * 70)
-print("🎉 CAPSTONE PROJECT COMPLETE!")
+print("CAPSTONE PROJECT COMPLETE!")
 print("=" * 70)
 
 # COMMAND ----------
@@ -408,17 +408,17 @@ print("=" * 70)
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC # 🎊 Congratulations!
+# MAGIC # Congratulations!
 # MAGIC 
 # MAGIC You've successfully completed the Databricks Capstone Project!
 # MAGIC 
 # MAGIC ## What You Built:
 # MAGIC 
-# MAGIC ✅ **Medallion Architecture** - Bronze, Silver, Gold layers  
-# MAGIC ✅ **Unity Catalog** - Data governance with catalog.schema.table  
-# MAGIC ✅ **Delta Lake** - ACID transactions and versioning  
-# MAGIC ✅ **Data Pipeline** - ETL with transformations  
-# MAGIC ✅ **Analytics** - Business-ready views  
+# MAGIC **Medallion Architecture** - Bronze, Silver, Gold layers  
+# MAGIC **Unity Catalog** - Data governance with catalog.schema.table  
+# MAGIC **Delta Lake** - ACID transactions and versioning  
+# MAGIC **Data Pipeline** - ETL with transformations  
+# MAGIC **Analytics** - Business-ready views  
 # MAGIC 
 # MAGIC ## Skills Demonstrated:
 # MAGIC 
@@ -428,7 +428,7 @@ print("=" * 70)
 # MAGIC - Aggregations and transformations
 # MAGIC - View creation for analytics
 # MAGIC 
-# MAGIC **Well done! 🚀**
+# MAGIC **Well done! **
 
 # COMMAND ----------
 

@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # 🚀 INSTANT Capstone Project Completion
+# MAGIC # INSTANT Capstone Project Completion
 # MAGIC 
 # MAGIC This notebook generates sample data and runs the entire pipeline.
 # MAGIC **No file upload needed!**
@@ -39,7 +39,7 @@ dirs = [
 
 for d in dirs:
     dbutils.fs.mkdirs(d)
-    print(f"✅ Created: {d}")
+    print(f"Created: {d}")
 
 # COMMAND ----------
 
@@ -67,7 +67,7 @@ df_users.limit(5).write.mode("overwrite").option("header", "true") \
 df_users.filter(F.col("user_id") > 5).write.mode("overwrite").option("header", "true") \
     .csv(f"{volume_base}/raw/registered_users_bz/1-registered_users_2.csv")
 
-print("✅ Generated registered users")
+print("Generated registered users")
 
 # COMMAND ----------
 
@@ -97,7 +97,7 @@ df_gym.limit(8).write.mode("overwrite").option("header", "true") \
 df_gym.filter(F.col("gym") > 2).write.mode("overwrite").option("header", "true") \
     .csv(f"{volume_base}/raw/gym_logins_bz/5-gym_logins_2.csv")
 
-print("✅ Generated gym logins")
+print("Generated gym logins")
 
 # COMMAND ----------
 
@@ -131,7 +131,7 @@ df_user_info = spark.createDataFrame(user_info_data)
 df_user_info.limit(5).write.mode("overwrite").json(f"{volume_base}/raw/kafka_multiplex_bz/2-user_info_1.json")
 df_user_info.filter(F.col("user_id") > 5).write.mode("overwrite").json(f"{volume_base}/raw/kafka_multiplex_bz/2-user_info_2.json")
 
-print("✅ Generated user info")
+print("Generated user info")
 
 # COMMAND ----------
 
@@ -159,7 +159,7 @@ df_bpm2 = spark.createDataFrame(bpm_data[mid:])
 df_bpm1.write.mode("overwrite").json(f"{volume_base}/raw/kafka_multiplex_bz/3-bpm_1.json")
 df_bpm2.write.mode("overwrite").json(f"{volume_base}/raw/kafka_multiplex_bz/3-bpm_2.json")
 
-print(f"✅ Generated BPM data ({len(bpm_data)} records)")
+print(f"Generated BPM data ({len(bpm_data)} records)")
 
 # COMMAND ----------
 
@@ -196,7 +196,7 @@ df_workout = spark.createDataFrame(workout_data)
 df_workout.limit(8).write.mode("overwrite").json(f"{volume_base}/raw/kafka_multiplex_bz/4-workout_1.json")
 df_workout.filter("session_id > 4").write.mode("overwrite").json(f"{volume_base}/raw/kafka_multiplex_bz/4-workout_2.json")
 
-print("✅ Generated workout data")
+print("Generated workout data")
 
 # COMMAND ----------
 
@@ -229,7 +229,7 @@ for day_num in range(365):
 df_date = spark.createDataFrame(date_lookup)
 df_date.write.mode("overwrite").json(f"{volume_base}/test_data/6-date-lookup.json")
 
-print("✅ Generated date lookup (365 days)")
+print("Generated date lookup (365 days)")
 
 # COMMAND ----------
 
@@ -240,7 +240,7 @@ print("✅ Generated date lookup (365 days)")
 
 # COMMAND ----------
 
-print("🚀 Running capstone pipeline...")
+print("Running capstone pipeline...")
 print("This may take 5-10 minutes...")
 print()
 
@@ -256,7 +256,7 @@ result = dbutils.notebook.run(
 
 print(result)
 print()
-print("✅ Pipeline completed!")
+print("Pipeline completed!")
 
 # COMMAND ----------
 
@@ -268,28 +268,28 @@ print("✅ Pipeline completed!")
 # List all tables
 tables = spark.sql(f"SHOW TABLES IN {CATALOG}.{SCHEMA}").collect()
 
-print(f"📊 Tables in {CATALOG}.{SCHEMA}:\n")
+print(f"Tables in {CATALOG}.{SCHEMA}:\n")
 
 bronze = [t.tableName for t in tables if "_bz" in t.tableName]
 gold = [t.tableName for t in tables if t.tableName in ["workout_bpm_summary", "gym_summary"]]
 silver = [t.tableName for t in tables if t.tableName not in bronze and t.tableName not in gold]
 
-print(f"🥉 Bronze Layer ({len(bronze)} tables):")
+print(f"Bronze Layer ({len(bronze)} tables):")
 for t in bronze:
     count = spark.table(f"{CATALOG}.{SCHEMA}.{t}").count()
     print(f"   - {t}: {count:,} records")
 
-print(f"\n🥈 Silver Layer ({len(silver)} tables):")
+print(f"\nSilver Layer ({len(silver)} tables):")
 for t in silver:
     count = spark.table(f"{CATALOG}.{SCHEMA}.{t}").count()
     print(f"   - {t}: {count:,} records")
 
-print(f"\n🥇 Gold Layer ({len(gold)} tables/views):")
+print(f"\nGold Layer ({len(gold)} tables/views):")
 for t in gold:
     count = spark.table(f"{CATALOG}.{SCHEMA}.{t}").count()
     print(f"   - {t}: {count:,} records")
 
-print(f"\n📊 Total: {len(tables)} tables created")
+print(f"\nTotal: {len(tables)} tables created")
 
 # COMMAND ----------
 
@@ -309,18 +309,18 @@ print(f"\n📊 Total: {len(tables)} tables created")
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC # 🎉 CAPSTONE PROJECT COMPLETE!
+# MAGIC # CAPSTONE PROJECT COMPLETE!
 # MAGIC 
 # MAGIC ## What Was Built
 # MAGIC 
-# MAGIC ✅ **Bronze Layer**: Raw data ingestion  
-# MAGIC ✅ **Silver Layer**: Data cleansing and transformation  
-# MAGIC ✅ **Gold Layer**: Business-ready analytics  
-# MAGIC ✅ **Unity Catalog**: Data governance  
-# MAGIC ✅ **Delta Lake**: ACID transactions  
-# MAGIC ✅ **Structured Streaming**: Real-time processing  
+# MAGIC **Bronze Layer**: Raw data ingestion  
+# MAGIC **Silver Layer**: Data cleansing and transformation  
+# MAGIC **Gold Layer**: Business-ready analytics  
+# MAGIC **Unity Catalog**: Data governance  
+# MAGIC **Delta Lake**: ACID transactions  
+# MAGIC **Structured Streaming**: Real-time processing  
 # MAGIC 
-# MAGIC ## Congratulations! 🎊
+# MAGIC ## Congratulations!
 # MAGIC 
 # MAGIC You've successfully completed the Databricks capstone project!
 

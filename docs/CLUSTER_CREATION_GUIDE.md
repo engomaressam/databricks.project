@@ -49,7 +49,7 @@ When you create the cluster, use these settings:
 
 - **Cluster Name**: `Capstone-Cluster`
 - **Policy**: None (or default)
-- **Access Mode**: **Single User** ⚠️ (CRITICAL!)
+- **Access Mode**: **Single User** (CRITICAL!)
 - **Databricks Runtime**: **14.3 LTS** or newer
 - **Node Type**: Default is fine
 - **Number of Workers**: 1 (minimum)
@@ -64,7 +64,7 @@ Click **Create Cluster**
 Try these:
 
 ### 1. Check the Hamburger Menu
-Sometimes there's a ☰ menu that expands to show "Clusters"
+Sometimes there's a menu that expands to show "Clusters"
 
 ### 2. Search Bar
 Use the search at the top of Databricks and type "cluster"

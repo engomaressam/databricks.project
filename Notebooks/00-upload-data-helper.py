@@ -48,11 +48,11 @@ files_to_copy = {
 for filename, dest_dir in files_to_copy.items():
     try:
         dbutils.fs.cp(f"{source_path}/{filename}", f"{dest_dir}{filename}")
-        print(f"✅ Copied: {filename}")
+        print(f"Copied: {filename}")
     except Exception as e:
-        print(f"❌ Error copying {filename}: {e}")
+        print(f"Error copying {filename}: {e}")
 
-print("\n✅ Data upload complete!")
+print("\nData upload complete!")
 
 # COMMAND ----------
 
@@ -85,7 +85,7 @@ display(dbutils.fs.ls("/Volumes/omar/sbit_db/capstone_data"))
 # df_users.write.mode("overwrite").option("header", "true") \
 #     .csv("/Volumes/omar/sbit_db/capstone_data/raw/registered_users_bz/")
 #
-# print("✅ Sample data generated")
+# print("Sample data generated")
 
 # COMMAND ----------
 

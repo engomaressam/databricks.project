@@ -1,11 +1,11 @@
 # Databricks Capstone Project - Setup Guide
 
-## ✅ Completed Steps
-1. ✅ Git repository cleaned and pushed (token secured)
-2. ✅ Databricks CLI configured
-3. ✅ All 10 notebooks imported to workspace: `/Users/omaressamrme@outlook.com/capstone/`
+## Completed Steps
+1. Git repository cleaned and pushed (token secured)
+2. Databricks CLI configured
+3. All 10 notebooks imported to workspace: `/Users/omaressamrme@outlook.com/capstone/`
 
-## 📋 Remaining Setup Steps
+## Remaining Setup Steps
 
 ### Step 1: Create Unity Catalog Volume for Data Storage
 
@@ -96,7 +96,7 @@ CREATE VOLUME IF NOT EXISTS omar.sbit_db.capstone_checkpoints;
 
 ---
 
-## 🔧 Automated Setup (Next Steps)
+## Automated Setup (Next Steps)
 
 I'll create a script to:
 1. Create volumes automatically
@@ -108,7 +108,7 @@ I'll create a script to:
 
 ---
 
-## 📊 Expected Results
+## Expected Results
 
 After successful execution:
 - **Bronze Layer**: 3 tables with raw data
@@ -118,7 +118,7 @@ After successful execution:
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 **Token Permission Error:**
 - Your token needs: `workspace`, `clusters`, `sql`, `unity-catalog` permissions

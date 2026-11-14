@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # 🚀 Complete Capstone Project - All-in-One
+# MAGIC # Complete Capstone Project - All-in-One
 # MAGIC 
 # MAGIC This notebook does EVERYTHING in one place:
 # MAGIC - Generates sample data
@@ -54,7 +54,7 @@ dirs = [
 
 for d in dirs:
     dbutils.fs.mkdirs(d)
-    print(f"✅ {d}")
+    print(f"{d}")
 
 # COMMAND ----------
 
@@ -74,7 +74,7 @@ df_users = spark.createDataFrame(user_data)
 df_users.limit(5).write.mode("overwrite").option("header", "true").csv(f"{volume_base}/raw/registered_users_bz/")
 df_users.filter(F.col("user_id") > 5).write.mode("append").option("header", "true").csv(f"{volume_base}/raw/registered_users_bz/")
 
-print("✅ Registered users created")
+print("Registered users created")
 
 # COMMAND ----------
 
@@ -96,7 +96,7 @@ for i in range(1, 17):
 df_gym = spark.createDataFrame(gym_data)
 df_gym.write.mode("overwrite").option("header", "true").csv(f"{volume_base}/raw/gym_logins_bz/")
 
-print("✅ Gym logins created")
+print("Gym logins created")
 
 # COMMAND ----------
 
@@ -125,7 +125,7 @@ for i in range(1, 11):
 df_user_info = spark.createDataFrame(user_info_data)
 df_user_info.write.mode("overwrite").json(f"{volume_base}/raw/kafka_multiplex_bz/user_info/")
 
-print("✅ User info created")
+print("User info created")
 
 # COMMAND ----------
 
@@ -148,7 +148,7 @@ for user_id in range(1, 6):
 df_bpm = spark.createDataFrame(bpm_data)
 df_bpm.write.mode("overwrite").json(f"{volume_base}/raw/kafka_multiplex_bz/bpm/")
 
-print(f"✅ BPM data created ({len(bpm_data)} records)")
+print(f"BPM data created ({len(bpm_data)} records)")
 
 # COMMAND ----------
 
@@ -185,7 +185,7 @@ for user_id in range(1, 9):
 df_workout = spark.createDataFrame(workout_data)
 df_workout.write.mode("overwrite").json(f"{volume_base}/raw/kafka_multiplex_bz/workout/")
 
-print("✅ Workout data created")
+print("Workout data created")
 
 # COMMAND ----------
 
@@ -215,8 +215,8 @@ for day_num in range(365):
 df_date = spark.createDataFrame(date_lookup)
 df_date.write.mode("overwrite").json(f"{volume_base}/test_data/")
 
-print("✅ Date lookup created (365 days)")
-print("\n📊 All sample data generated!")
+print("Date lookup created (365 days)")
+print("\nAll sample data generated!")
 
 # COMMAND ----------
 
@@ -230,7 +230,7 @@ print(f"Creating database {CATALOG}.{SCHEMA}...")
 spark.sql(f"CREATE DATABASE IF NOT EXISTS {CATALOG}.{SCHEMA}")
 spark.sql(f"USE {CATALOG}.{SCHEMA}")
 
-print("✅ Database ready")
+print("Database ready")
 
 # COMMAND ----------
 
@@ -252,7 +252,7 @@ CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.registered_users_bz(
     source_file string
 )
 """)
-print("✅ registered_users_bz")
+print("registered_users_bz")
 
 spark.sql(f"""
 CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.gym_logins_bz(
@@ -264,7 +264,7 @@ CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.gym_logins_bz(
     source_file string
 )
 """)
-print("✅ gym_logins_bz")
+print("gym_logins_bz")
 
 spark.sql(f"""
 CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.kafka_multiplex_bz(
@@ -280,7 +280,7 @@ CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.kafka_multiplex_bz(
     source_file string
 ) PARTITIONED BY (topic, week_part)
 """)
-print("✅ kafka_multiplex_bz")
+print("kafka_multiplex_bz")
 
 # Silver tables
 spark.sql(f"""
@@ -291,7 +291,7 @@ CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.users(
     registration_timestamp timestamp
 )
 """)
-print("✅ users")
+print("users")
 
 spark.sql(f"""
 CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.gym_logs(
@@ -301,7 +301,7 @@ CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.gym_logs(
     logout timestamp
 )
 """)
-print("✅ gym_logs")
+print("gym_logs")
 
 spark.sql(f"""
 CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.date_lookup(
@@ -315,9 +315,9 @@ CREATE TABLE IF NOT EXISTS {CATALOG}.{SCHEMA}.date_lookup(
     week_part string
 )
 """)
-print("✅ date_lookup")
+print("date_lookup")
 
-print("\n✅ All tables created!")
+print("\nAll tables created!")
 
 # COMMAND ----------
 
@@ -334,7 +334,7 @@ INSERT OVERWRITE TABLE {CATALOG}.{SCHEMA}.date_lookup
 SELECT date, week, year, month, dayofweek, dayofmonth, dayofyear, week_part
 FROM json.`{volume_base}/test_data/`
 """)
-print("✅ date_lookup loaded")
+print("date_lookup loaded")
 
 # Load users from bronze
 df_users_bronze = spark.read.option("header", "true").csv(f"{volume_base}/raw/registered_users_bz/") \
@@ -342,7 +342,7 @@ df_users_bronze = spark.read.option("header", "true").csv(f"{volume_base}/raw/re
     .withColumn("source_file", F.lit("generated"))
 
 df_users_bronze.write.mode("overwrite").saveAsTable(f"{CATALOG}.{SCHEMA}.registered_users_bz")
-print("✅ registered_users_bz loaded")
+print("registered_users_bz loaded")
 
 # Transform to silver users
 df_users_silver = df_users_bronze.select(
@@ -353,7 +353,7 @@ df_users_silver = df_users_bronze.select(
 ).dropDuplicates(["user_id"])
 
 df_users_silver.write.mode("overwrite").saveAsTable(f"{CATALOG}.{SCHEMA}.users")
-print("✅ users loaded")
+print("users loaded")
 
 # Load gym logins
 df_gym_bronze = spark.read.option("header", "true").csv(f"{volume_base}/raw/gym_logins_bz/") \
@@ -361,7 +361,7 @@ df_gym_bronze = spark.read.option("header", "true").csv(f"{volume_base}/raw/gym_
     .withColumn("source_file", F.lit("generated"))
 
 df_gym_bronze.write.mode("overwrite").saveAsTable(f"{CATALOG}.{SCHEMA}.gym_logins_bz")
-print("✅ gym_logins_bz loaded")
+print("gym_logins_bz loaded")
 
 # Transform to silver gym_logs
 df_gym_silver = df_gym_bronze.select(
@@ -372,9 +372,9 @@ df_gym_silver = df_gym_bronze.select(
 ).dropDuplicates(["mac_address", "gym", "login"])
 
 df_gym_silver.write.mode("overwrite").saveAsTable(f"{CATALOG}.{SCHEMA}.gym_logs")
-print("✅ gym_logs loaded")
+print("gym_logs loaded")
 
-print("\n✅ All data loaded!")
+print("\nAll data loaded!")
 
 # COMMAND ----------
 
@@ -395,9 +395,9 @@ SELECT
 FROM {CATALOG}.{SCHEMA}.gym_logs l
 ORDER BY date, gym, l.mac_address
 """)
-print("✅ gym_summary view created")
+print("gym_summary view created")
 
-print("\n✅ Gold layer complete!")
+print("\nGold layer complete!")
 
 # COMMAND ----------
 
@@ -408,37 +408,37 @@ print("\n✅ Gold layer complete!")
 
 tables = spark.sql(f"SHOW TABLES IN {CATALOG}.{SCHEMA}").collect()
 
-print(f"📊 Tables in {CATALOG}.{SCHEMA}:\n")
+print(f"Tables in {CATALOG}.{SCHEMA}:\n")
 
 bronze = [t.tableName for t in tables if "_bz" in t.tableName]
 gold = [t.tableName for t in tables if t.tableName in ["gym_summary"]]
 silver = [t.tableName for t in tables if t.tableName not in bronze and t.tableName not in gold]
 
-print(f"🥉 Bronze Layer ({len(bronze)} tables):")
+print(f"Bronze Layer ({len(bronze)} tables):")
 for t in bronze:
     try:
         count = spark.table(f"{CATALOG}.{SCHEMA}.{t}").count()
-        print(f"   ✅ {t}: {count:,} records")
+        print(f"   {t}: {count:,} records")
     except:
-        print(f"   ⚠️  {t}: Unable to count")
+        print(f"    {t}: Unable to count")
 
-print(f"\n🥈 Silver Layer ({len(silver)} tables):")
+print(f"\nSilver Layer ({len(silver)} tables):")
 for t in silver:
     try:
         count = spark.table(f"{CATALOG}.{SCHEMA}.{t}").count()
-        print(f"   ✅ {t}: {count:,} records")
+        print(f"   {t}: {count:,} records")
     except:
-        print(f"   ⚠️  {t}: Unable to count")
+        print(f"    {t}: Unable to count")
 
-print(f"\n🥇 Gold Layer ({len(gold)} views):")
+print(f"\nGold Layer ({len(gold)} views):")
 for t in gold:
     try:
         count = spark.table(f"{CATALOG}.{SCHEMA}.{t}").count()
-        print(f"   ✅ {t}: {count:,} records")
+        print(f"   {t}: {count:,} records")
     except:
-        print(f"   ⚠️  {t}: Unable to count")
+        print(f"    {t}: Unable to count")
 
-print(f"\n📊 Total: {len(tables)} tables/views created!")
+print(f"\nTotal: {len(tables)} tables/views created!")
 
 # COMMAND ----------
 
@@ -458,15 +458,15 @@ print(f"\n📊 Total: {len(tables)} tables/views created!")
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC # 🎉 CAPSTONE PROJECT COMPLETE!
+# MAGIC # CAPSTONE PROJECT COMPLETE!
 # MAGIC 
 # MAGIC ## Summary
 # MAGIC 
-# MAGIC ✅ Sample data generated  
-# MAGIC ✅ Database and tables created  
-# MAGIC ✅ Bronze layer: Raw data  
-# MAGIC ✅ Silver layer: Transformed data  
-# MAGIC ✅ Gold layer: Analytics  
+# MAGIC Sample data generated  
+# MAGIC Database and tables created  
+# MAGIC Bronze layer: Raw data  
+# MAGIC Silver layer: Transformed data  
+# MAGIC Gold layer: Analytics  
 # MAGIC 
 # MAGIC ## What You Built
 # MAGIC 
@@ -475,7 +475,7 @@ print(f"\n📊 Total: {len(tables)} tables/views created!")
 # MAGIC - **Delta Lake** tables
 # MAGIC - **Data pipeline** with transformations
 # MAGIC 
-# MAGIC **Congratulations! 🎊**
+# MAGIC **Congratulations! **
 
 # COMMAND ----------
 
